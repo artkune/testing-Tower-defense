@@ -5,7 +5,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float _Speed;
-    public int Damage;
+    public float _Damage;
+    public bool _isSlow;
+    public GameObject _Bomb;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,9 @@ public class Bullet : MonoBehaviour
     {
         if(other.tag == "Enemy")
         {
+            Enemy _other_Enemy = other.GetComponent<Enemy>();
+            _other_Enemy.Attack(_Damage,_isSlow);
+            Instantiate(_Bomb, this.transform.position, this.transform.rotation);
             Destroy(gameObject);
         }
     }

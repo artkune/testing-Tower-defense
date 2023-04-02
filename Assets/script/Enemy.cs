@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -10,7 +11,9 @@ public class Enemy : MonoBehaviour
     public float _Speed;
     public float _Upgrade;
 
+
     [Header("move Settings")]
+    public bool E_isSlow;
     public Vector3 _ponmove;
     private mapEnemyMove _mapmove;
     private int numberPon = 1;
@@ -25,6 +28,11 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         setmoveEnemy();
+
+        if (_HP < 0)
+        {
+            dead();
+        }
     }
     void setmoveEnemy()
     {
@@ -41,7 +49,12 @@ public class Enemy : MonoBehaviour
         {
             _ponmove = _mapmove._Ponmove[numberPon];
             transform.LookAt(_ponmove);
-            transform.position = Vector3.MoveTowards(transform.position, _ponmove, _Speed * Time.deltaTime);
+            float _speedUse = _Speed ;
+            if (E_isSlow)
+            {
+                _speedUse = _Speed * (1 - (_Upgrade / 100));
+            }
+            transform.position = Vector3.MoveTowards(transform.position, _ponmove,_speedUse * Time.deltaTime);
         }
 
         
@@ -72,6 +85,30 @@ public class Enemy : MonoBehaviour
     {
         _Upgrade = _numUpgrade;
         
+    }
+
+    public void Attack(float inDamage)
+    {
+        _HP -= inDamage;
+        if (_HP < 0)
+        {
+            dead();
+        }
+    }
+    public void Attack(float inDamage,bool inSlow)
+    {
+        _HP -= inDamage;
+        if (_HP < 0)
+        {
+            dead();
+        }
+        E_isSlow = inSlow;
+        
+    }
+
+    void dead()
+    {
+        Destroy(this.gameObject);
     }
 }
 public enum EnemyType {Type_1,Type_2,Type_3 }

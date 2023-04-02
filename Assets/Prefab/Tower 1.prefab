@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 208eb6ea463b75b40ba1a7892a1c6d44, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -147,6 +147,8 @@ MonoBehaviour:
   T_Firerate: 0
   T_Damage: 0
   T_Radius: 0
+  T_TimeFirerate: 0
+  T_Bullet: {fileID: 4507030494032071838, guid: 08e360f675869cd408d7b3d7174b3ec5, type: 3}
   E_targetEnemy: []
 --- !u!135 &762210378854063790
 SphereCollider:
@@ -225,7 +227,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 208eb6ea463b75b40ba1a7892a1c6d44, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

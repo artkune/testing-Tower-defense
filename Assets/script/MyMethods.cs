@@ -45,6 +45,15 @@ public static class MyMethods
                 closestDistance = distance;
             }
         }
+        for (int i = 1; i < gameObjects.Count; i++)
+        {
+            float new_HP = gameObjects[i].GetComponent<Enemy>()._HP;
+            float old_HP = closestGameObject.GetComponent<Enemy>()._HP;
+            if (new_HP > old_HP)
+            {
+                closestGameObject = gameObjects[i];
+            }
+        }
 
         return closestGameObject;
     }
