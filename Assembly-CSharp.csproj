@@ -61,9 +61,10 @@
     <Compile Include="Assets\script\MyMethods.cs" />
     <Compile Include="Assets\script\Bullet.cs" />
     <Compile Include="Assets\script\Enemy.cs" />
+    <Compile Include="Assets\script\Bome.cs" />
     <Compile Include="Assets\script\mapEnemyMove.cs" />
     <Compile Include="Assets\script\Tower.cs" />
-    <Compile Include="Assets\script\Bome.cs" />
+    <Compile Include="Assets\script\boxInTower.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

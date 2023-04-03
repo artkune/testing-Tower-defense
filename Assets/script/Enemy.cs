@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public EnemyType _EnemyType;
     public float _HP;
     public float _Speed;
+    float _speedUse;
     public float _Upgrade;
 
 
@@ -33,6 +34,7 @@ public class Enemy : MonoBehaviour
         {
             dead();
         }
+        
     }
     void setmoveEnemy()
     {
@@ -49,10 +51,10 @@ public class Enemy : MonoBehaviour
         {
             _ponmove = _mapmove._Ponmove[numberPon];
             transform.LookAt(_ponmove);
-            float _speedUse = _Speed ;
+            _speedUse = _Speed ;
             if (E_isSlow)
             {
-                _speedUse = _Speed * (1 - (_Upgrade / 100));
+                _speedUse = _Speed * (1 - 0.3f);
             }
             transform.position = Vector3.MoveTowards(transform.position, _ponmove,_speedUse * Time.deltaTime);
         }
